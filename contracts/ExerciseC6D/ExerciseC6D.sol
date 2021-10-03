@@ -91,14 +91,8 @@ contract ExerciseC6D {
                             external
                             payable
     {
-        // CODE EXERCISE 1: Require registration fee
-        /* Enter code here */
-
-        // CODE EXERCISE 1: Generate three random indexes (range 0-9) using generateIndexes for the calling oracle
-        /* Enter code here */
-
-        // CODE EXERCISE 1: Assign the indexes to the oracle and save to the contract state
-        /* Enter code here */
+        require(msg.value >= REGISTRATION_FEE, "Registration requires 1 ether");
+        oracles[msg.sender] = generateIndexes(msg.sender);
     }
 
     function getOracle
